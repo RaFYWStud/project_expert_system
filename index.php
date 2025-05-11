@@ -13,6 +13,13 @@ include 'functions.php';
 </head>
 
 <body>
+    <nav>
+        <ul>
+            <li><a href="index.php">Diagnosa</a></li>
+            <li><a href="knowledge_base.php">Basis Pengetahuan</a></li>
+            <li><a href="about.php">Tentang Sistem</a></li>
+        </ul>
+    </nav>
     <div class="container">
         <header>
             <h1>Sistem Pakar Diagnosa Penyakit Bayi</h1>
