@@ -9,21 +9,22 @@ include 'functions.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diagnosa Penyakit Bayi</title>
+    <script src="assets/js/script.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.php">Diagnosa</a></li>
-            <li><a href="knowledge_base.php">Basis Pengetahuan</a></li>
-            <li><a href="about.php">Tentang Sistem</a></li>
-        </ul>
+    <nav class="hamburger-navbar">
+        <h1>Sistem Pakar Penyakit Pernafasan Bayi</h1>
+        <button class="hamburger-button" onclick="toggleMenu()">☰</button>
+        <div class="hamburger-menu">
+            <a href="index.php">Diagnosa</a>
+            <a href="knowledge_base.php">Basis Pengetahuan</a>
+            <a href="about.php">Tentang Sistem</a>
+        </div>
     </nav>
+
     <div class="container">
-        <header>
-            <h1>Sistem Pakar Diagnosa Penyakit Bayi</h1>
-        </header>
 
         <main>
             <form action="processes/diagnosis.php" method="post">

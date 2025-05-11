@@ -25,77 +25,25 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basis Pengetahuan Sistem Pakar</title>
+    <script src="assets/js/script.js" defer></script>
     <link rel="stylesheet" href="assets/css/style.css">
-    <style>
-        .knowledge-container {
-            margin: 20px auto;
-            max-width: 1200px;
-        }
-
-        .disease-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            overflow: hidden;
-        }
-
-        .disease-header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px;
-        }
-
-        .disease-body {
-            padding: 20px;
-        }
-
-        .symptoms-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        .symptoms-table th,
-        .symptoms-table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-
-        .symptoms-table th {
-            background-color: #f2f2f2;
-        }
-
-        .prior-badge {
-            background-color: #2196F3;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.9em;
-        }
-
-        .likelihood-badge {
-            background-color: #ff9800;
-            color: white;
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-size: 0.85em;
-        }
-    </style>
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.php">Diagnosa</a></li>
-            <li><a href="knowledge_base.php">Basis Pengetahuan</a></li>
-            <li><a href="about.php">Tentang Sistem</a></li>
-        </ul>
+    <nav class="hamburger-navbar">
+        <h1>Basis Pengetahuan Sistem Pakar</h1>
+        <button class="hamburger-button" onclick="toggleMenu()">☰</button>
+        <div class="hamburger-menu">
+            <a href="index.php">Diagnosa</a>
+            <a href="knowledge_base.php">Basis Pengetahuan</a>
+            <a href="about.php">Tentang Sistem</a>
+        </div>
     </nav>
 
     <div class="container">
+
         <div class="knowledge-container">
-            <h1>Basis Pengetahuan Sistem Pakar</h1>
+
             <p>Berikut adalah aturan dan pengetahuan yang digunakan sistem untuk mendiagnosa penyakit bayi:</p>
 
             <?php

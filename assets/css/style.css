@@ -15,6 +15,87 @@ body {
     padding: 20px;
 }
 
+/* Hamburger Navbar Styles */
+.hamburger-navbar {
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    justify-content: center; /* Pastikan elemen di tengah secara horizontal */
+    align-items: center; /* Pastikan elemen di tengah secara vertikal */
+    padding: 40px 20px;
+    background-color: #4CAF50;
+}
+
+.hamburger-navbar h1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.5em;
+    margin: 0;
+    text-align: center;
+    z-index: 1;
+}
+
+.hamburger-button {
+    position: absolute;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.hamburger-button:hover {
+    background-color: #45a049;
+}
+
+.hamburger-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.hamburger-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.hamburger-menu a:hover {
+    background-color: #f2f2f2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hamburger-navbar {
+        padding: 30px;
+        font-size: 12px;
+    }
+s
+    .hamburger-button {
+        font-size: 20px;
+    }
+
+    .hamburger-menu a {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+}
+
 /* Form Styles */
 .form-group {
     margin-bottom: 20px;
@@ -149,6 +230,55 @@ legend {
     color: #4CAF50;
     margin: 10px 0 0;
 }
+
+
+.knowledge-container {
+    margin: 20px auto;
+    max-width: 1200px;
+}
+.disease-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+.disease-header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+}
+.disease-body {
+    padding: 20px;
+}
+.symptoms-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+.symptoms-table th, .symptoms-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+.symptoms-table th {
+    background-color: #f2f2f2;
+}
+.prior-badge {
+    background-color: #2196F3;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9em;
+}
+.likelihood-badge {
+    background-color: #ff9800;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
