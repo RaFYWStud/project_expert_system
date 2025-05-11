@@ -21,3 +21,18 @@ function toggleMenu() {
         menu.style.display = 'block';
     }
 }
+
+//Index progress bar
+document.addEventListener('DOMContentLoaded', function () {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const progress = document.getElementById('progress');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+            const checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            const totalCheckboxes = checkboxes.length;
+            const progressValue = (checkedCount / totalCheckboxes) * 100;
+            progress.value = progressValue;
+        });
+    });
+});

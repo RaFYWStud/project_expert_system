@@ -9,7 +9,7 @@ include 'functions.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diagnosa Penyakit Bayi</title>
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js" defer></script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -25,21 +25,29 @@ include 'functions.php';
     </nav>
 
     <div class="container">
+        <header class="page-header">
+            <h2>Selamat Datang di Sistem Pakar</h2>
+            <p>Silakan isi data pasien dan pilih gejala untuk memulai diagnosa.</p>
+        </header>
 
         <main>
             <form action="processes/diagnosis.php" method="post">
                 <div class="form-group">
                     <label for="nama">Nama Pasien:</label>
-                    <input type="text" id="nama" name="nama_pasien" required>
+                    <input type="text" id="nama" name="nama_pasien" placeholder="Masukkan nama pasien..." required>
                 </div>
 
                 <div class="form-group">
                     <label for="usia">Usia (bulan):</label>
-                    <input type="number" id="usia" name="usia_pasien" min="0" max="60" required>
+                    <input type="number" id="usia" name="usia_pasien" placeholder="Masukkan usia pasien dalam bulan..." min="0" max="60" required>
                 </div>
 
                 <fieldset>
                     <legend>Pilih Gejala:</legend>
+                    <div class="progress-container">
+                        <label for="progress">Gejala yang Dipilih:</label>
+                        <progress id="progress" value="0" max="100"></progress>
+                    </div>
                     <?php
                     $sql = "SELECT * FROM gejala";
                     $result = $conn->query($sql);
