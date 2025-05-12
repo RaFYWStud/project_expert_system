@@ -44,7 +44,7 @@ $result = $conn->query($sql);
 
         <div class="knowledge-container">
 
-            <p>Berikut adalah aturan dan pengetahuan yang digunakan sistem untuk mendiagnosa penyakit bayi:</p>
+            <p>Berikut adalah aturan dan pengetahuan yang digunakan sistem untuk mendiagnosa penyakit anak:</p>
 
             <?php
             $current_disease = null;

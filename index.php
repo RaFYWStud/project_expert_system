@@ -8,14 +8,14 @@ include 'functions.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diagnosa Penyakit Bayi</title>
+    <title>Diagnosa Penyakit Anak</title>
     <script src="assets/js/script.js" defer></script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
     <nav class="hamburger-navbar">
-        <h1>Sistem Pakar Penyakit Pernafasan Bayi</h1>
+        <h1>Sistem Pakar Penyakit Pernafasan Anak</h1>
         <button class="hamburger-button" onclick="toggleMenu()">☰</button>
         <div class="hamburger-menu">
             <a href="index.php">Diagnosa</a>

@@ -37,13 +37,13 @@ $count_data = $count_result->fetch_assoc();
 
     <div class="container">
         <header class="page-header">
-            <h2>Sistem Pakar Penyakit Pernapasan Bayi</h2>
+            <h2>Sistem Pakar Penyakit Pernapasan Anak</h2>
             <p>Project Akhir Mata Kuliah Kecerdasan Buatan</p>
         </header>
 
         <div class="about-section">
             <h3>Tentang Sistem</h3>
-            <p>Sistem pakar ini dikembangkan sebagai project akhir mata kuliah Kecerdasan Buatan. Tujuan sistem ini adalah untuk membantu diagnosis awal penyakit pernapasan pada bayi berdasarkan gejala-gejala yang terlihat. Sistem ini bukan pengganti diagnosis medis profesional, tetapi dapat membantu orang tua untuk mendapatkan informasi awal tentang kondisi kesehatan anak mereka.</p>
+            <p>Sistem pakar ini dikembangkan sebagai project akhir mata kuliah Kecerdasan Buatan. Tujuan sistem ini adalah untuk membantu diagnosis awal penyakit pernapasan pada Anak berdasarkan gejala-gejala yang terlihat. Sistem ini bukan pengganti diagnosis medis profesional, tetapi dapat membantu orang tua untuk mendapatkan informasi awal tentang kondisi kesehatan anak mereka.</p>
 
             <h3>Metode yang Digunakan</h3>
             <p>Sistem ini dibangun menggunakan algoritma <strong>Teorema Bayes</strong>, sebuah metode probabilistik yang digunakan dalam sistem pakar untuk menghitung kemungkinan suatu penyakit berdasarkan gejala-gejala yang diamati. Teorema Bayes menggunakan konsep probabilitas kondisional untuk memperbarui keyakinan tentang sebuah hipotesis berdasarkan bukti baru.</p>
@@ -63,7 +63,7 @@ $count_data = $count_result->fetch_assoc();
             <h3>Basis Pengetahuan</h3>
             <p>Sistem pakar ini menggunakan basis pengetahuan yang terdiri dari:</p>
             <ul>
-                <li><strong><?= $count_data['total_penyakit'] ?> Jenis Penyakit</strong> pernapasan yang umum terjadi pada bayi</li>
+                <li><strong><?= $count_data['total_penyakit'] ?> Jenis Penyakit</strong> pernapasan yang umum terjadi pada Anak</li>
                 <li><strong><?= $count_data['total_gejala'] ?> Gejala</strong> yang dapat diamati oleh orang tua</li>
                 <li><strong><?= $count_data['total_aturan'] ?> Aturan</strong> yang menghubungkan gejala dengan penyakit</li>
             </ul>
@@ -72,16 +72,16 @@ $count_data = $count_result->fetch_assoc();
 
             <h3>Fitur Sistem</h3>
             <ol>
-                <li><strong>Diagnosis Interaktif</strong> - Pengguna dapat memilih gejala yang terlihat pada bayi</li>
+                <li><strong>Diagnosis Interaktif</strong> - Pengguna dapat memilih gejala yang terlihat pada Anak</li>
                 <li><strong>Visualisasi Hasil</strong> - Hasil diagnosis ditampilkan dalam bentuk grafik pie untuk memudahkan pemahaman</li>
-                <li><strong>Solusi Penanganan</strong> - Sistem memberikan saran penanganan awal berdasarkan diagnosis dan usia bayi</li>
+                <li><strong>Solusi Penanganan</strong> - Sistem memberikan saran penanganan awal berdasarkan diagnosis dan usia Anak</li>
                 <li><strong>Basis Pengetahuan Transparan</strong> - Pengguna dapat melihat seluruh basis pengetahuan yang digunakan</li>
             </ol>
 
             <h3>Batasan Sistem</h3>
             <p>Perlu dicatat bahwa sistem pakar ini memiliki beberapa batasan:</p>
             <ul>
-                <li>Sistem hanya mendiagnosa penyakit pernapasan yang umum terjadi pada bayi</li>
+                <li>Sistem hanya mendiagnosa penyakit pernapasan yang umum terjadi pada anak</li>
                 <li>Hasil diagnosis bukan pengganti konsultasi medis dengan dokter anak</li>
                 <li>Sistem mengandalkan input gejala yang akurat dari pengguna</li>
                 <li>Solusi yang diberikan bersifat umum dan perlu disesuaikan dengan kondisi spesifik anak</li>
@@ -99,7 +99,6 @@ $count_data = $count_result->fetch_assoc();
             <h3>Referensi</h3>
             <ul>
                 <li>Herman, Sunardi, & Muslimah, V. (2024). <em>Implementing Bayes' Theorem method in expert system to determine infant disease</em>. Khazanah Informatika: Jurnal Ilmu Komputer dan Informatika, 10(1), 1-13.</li>
-
                 <li>World Health Organization. (2019). <em>Integrated Management of Childhood Illness</em>.</li>
             </ul>
 
@@ -111,7 +110,7 @@ $count_data = $count_result->fetch_assoc();
     </div>
 
     <footer class="about-footer">
-        <p>© 2025 Sistem Pakar Penyakit Pernapasan Bayi - Project Akhir Mata Kuliah Kecerdasan Buatan</p>
+        <p>© 2025 Sistem Pakar Penyakit Pernapasan Anak - Project Akhir Mata Kuliah Kecerdasan Buatan</p>
     </footer>
 </body>
 
