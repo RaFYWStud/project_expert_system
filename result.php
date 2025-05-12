@@ -50,7 +50,52 @@ $diagnosa = $_SESSION['diagnosa'];
                 </div>
             </div>
 
+            <div class="solution">
+                <h2>Solusi & Penanganan</h2>
+                <?php
+                $penyakit_terdeteksi = array_key_first($diagnosa['hasil']);
+                $usia_pasien = $diagnosa['usia_pasien'];
+
+                $sql_solusi = "SELECT solusi FROM solusi 
+                  WHERE id_penyakit = '$penyakit_terdeteksi' 
+                  AND $usia_pasien BETWEEN usia_min AND usia_max";
+                $result_solusi = $conn->query($sql_solusi);
+
+                if ($result_solusi && $result_solusi->num_rows > 0) {
+                    $row_solusi = $result_solusi->fetch_assoc();
+                    echo '<div class="solution-content">';
+                    echo $row_solusi['solusi'];
+                    echo '</div>';
+
+                    echo '<div class="solution-note">';
+                    echo '<p><strong>Catatan Penting:</strong> Solusi di atas adalah saran umum. Jika gejala berlanjut atau memburuk, segera konsultasikan dengan dokter anak.</p>';
+                    echo '</div>';
+                } else {
+                    echo '<div class="solution-content">';
+                    echo 'Belum ada solusi spesifik untuk kombinasi penyakit dan usia ini. Silakan konsultasikan dengan dokter anak untuk penanganan lebih lanjut.';
+                    echo '</div>';
+                }
+
+                echo '<div class="selected-symptoms">';
+                echo '<h3>Gejala yang Dipilih:</h3>';
+                echo '<ul>';
+
+                foreach ($diagnosa['gejala_terpilih'] as $gejala_id) {
+                    $sql_gejala = "SELECT nama_gejala FROM gejala WHERE id_gejala = '$gejala_id'";
+                    $result_gejala = $conn->query($sql_gejala);
+                    if ($result_gejala && $row_gejala = $result_gejala->fetch_assoc()) {
+                        echo '<li>' . $row_gejala['nama_gejala'] . '</li>';
+                    }
+                }
+
+                echo '</ul>';
+                echo '</div>';
+                ?>
+            </div>
+
+
             <a href="index.php" class="btn-back">Kembali</a>
+
         </main>
     </div>
 
