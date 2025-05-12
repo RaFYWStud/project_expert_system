@@ -204,29 +204,17 @@ s
 }
 
 /* Result Styles */
-.patient-info, .symptoms-list, .diagnosis-result, .conclusion {
+.patient-info, .diagnosis-chart, .conclusion {
     background-color: white;
     padding: 20px;
-    border-radius: 4px;
+    border-radius: 8px;
     margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.progress-bar {
-    width: 100%;
-    background-color: #e0e0e0;
-    border-radius: 4px;
-    margin: 10px 0;
-    position: relative;
-}
-
-.progress {
-    height: 30px;
-    background-color: #4CAF50;
-    border-radius: 4px;
-    text-align: center;
-    line-height: 30px;
-    color: white;
+.patient-info p, .conclusion p {
+    font-size: 1.1em;
+    margin: 5px 0;
 }
 
 .primary-diagnosis {
@@ -234,6 +222,40 @@ s
     padding: 15px;
     border-left: 4px solid #4CAF50;
     margin-top: 15px;
+    border-radius: 4px;
+}
+
+.primary-diagnosis h3 {
+    margin: 0;
+    color: #4CAF50;
+}
+
+/* Chart Container */
+.chart-container {
+    position: relative;
+    width: 300px;
+    margin: 0 auto;
+}
+
+/* Button Styles */
+.btn-back {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-back:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Responsive Design */
@@ -241,6 +263,16 @@ s
     .container {
         width: 95%;
         padding: 10px;
+    }
+
+    .chart-container {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .btn-back {
+        font-size: 14px;
+        padding: 10px 20px;
     }
 }
 

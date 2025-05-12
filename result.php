@@ -18,11 +18,12 @@ $diagnosa = $_SESSION['diagnosa'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hasil Diagnosa</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <header>
+        <header class="page-header">
             <h1>Hasil Diagnosa</h1>
         </header>
 
@@ -33,49 +34,80 @@ $diagnosa = $_SESSION['diagnosa'];
                 <p><strong>Usia:</strong> <?= $diagnosa['usia_pasien'] ?> bulan</p>
             </div>
 
-            <div class="symptoms-list">
-                <h2>Gejala Terpilih</h2>
-                <ul>
-                    <?php
-                    $gejala_ids = implode("','", $diagnosa['gejala_terpilih']);
-                    $sql = "SELECT nama_gejala FROM gejala WHERE id_gejala IN ('$gejala_ids')";
-                    $result = $conn->query($sql);
-
-                    while ($row = $result->fetch_assoc()) {
-                        echo '<li>' . $row['nama_gejala'] . '</li>';
-                    }
-                    ?>
-                </ul>
-            </div>
-
-            <div class="diagnosis-result">
+            <div class="diagnosis-chart">
                 <h2>Hasil Analisis</h2>
-                <?php
-                $diagnosa_utama = array_key_first($diagnosa['hasil']);
-                foreach ($diagnosa['hasil'] as $id => $data) {
-                    echo '<div class="disease-progress">';
-                    echo '<h3>' . $data['nama'] . '</h3>';
-                    echo '<div class="progress-bar">';
-                    echo '<div class="progress" style="width: ' . $data['probabilitas'] . '%"></div>';
-                    echo '<span>' . $data['probabilitas'] . '%</span>';
-                    echo '</div>';
-                    echo '</div>';
-                }
-                ?>
+                <div class="chart-container">
+                    <canvas id="diagnosisChart"></canvas>
+                </div>
             </div>
 
             <div class="conclusion">
                 <h2>Kesimpulan</h2>
                 <p>Berdasarkan analisis gejala, pasien kemungkinan besar menderita:</p>
                 <div class="primary-diagnosis">
-                    <h3><?= $diagnosa['hasil'][$diagnosa_utama]['nama'] ?></h3>
-                    <p>Dengan probabilitas <?= $diagnosa['hasil'][$diagnosa_utama]['probabilitas'] ?>%</p>
+                    <h3><?= $diagnosa['hasil'][array_key_first($diagnosa['hasil'])]['nama'] ?></h3>
+                    <p>Dengan probabilitas <?= $diagnosa['hasil'][array_key_first($diagnosa['hasil'])]['probabilitas'] ?>%</p>
                 </div>
             </div>
 
             <a href="index.php" class="btn-back">Kembali</a>
         </main>
     </div>
+
+    <script>
+        // Data untuk Pie Chart
+        const data = {
+            labels: [
+                <?php
+                foreach ($diagnosa['hasil'] as $id => $data) {
+                    echo "'" . $data['nama'] . "',";
+                }
+                ?>
+            ],
+            datasets: [{
+                data: [
+                    <?php
+                    foreach ($diagnosa['hasil'] as $id => $data) {
+                        echo $data['probabilitas'] . ",";
+                    }
+                    ?>
+                ],
+                backgroundColor: [
+                    '#4CAF50',
+                    '#FF9800',
+                    '#2196F3',
+                    '#F44336',
+                    '#9C27B0'
+                ],
+                hoverOffset: 4
+            }]
+        };
+
+        // Konfigurasi Pie Chart
+        const config = {
+            type: 'pie',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.label + ': ' + context.raw + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        // Render Pie Chart
+        const ctx = document.getElementById('diagnosisChart').getContext('2d');
+        new Chart(ctx, config);
+    </script>
 </body>
 
 </html>
